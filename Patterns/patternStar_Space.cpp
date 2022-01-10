@@ -189,8 +189,82 @@ void pattern9(int n){
          cout<<endl;
     }
 }
+//          *
+//         * *
+//        *   *
+//       *     *
+//      *********
 
-
+void pattern10(int n){
+     for(int row=1; row<=n; row++){
+         for(int space=1; space<=n-row; space++){
+             cout<<"  ";
+         }
+         for(int col=1; col<=row; col++){
+             if(row==n){
+                cout<<"**";
+             }
+             else if(col==1 || col==row)
+             cout<<"* ";
+             else
+             cout<<"  ";
+         }
+         cout<<endl;
+   }
+}
+// 11.       *****
+//          *   *
+//         *   *
+//        *   *
+//       *****
+void pattern11(int n){
+     for(int row=1; row<=n; row++){
+         for(int space=1; space<=n-row; space++){
+             cout<<"  ";
+         }
+         for(int col=1; col<=n; col++){
+             if(row==1 || row==n)
+              cout<<"*";
+              else{
+                  if(col==1 || col==n){
+                      cout<<"*";
+                  }
+                  else{
+                      cout<<" ";
+                  }
+              }
+         }
+         cout<<endl;
+     }
+}
+    //    *        *
+    //    **      **
+    //    ***    ***
+    //    ****  ****
+    //    **********
+    //    ****  ****
+    //    ***    ***
+    //    **      **
+    //    *        *
+    void pattern12(int n){
+       for(int row=1; row<=2*n-1; row++){
+       int c=row<n?row:2*n-row;
+       for(int col=1; col<=c; col++)
+       {
+           cout<<"*";
+       }
+       int s=row<=n?2*(n-row):2*(row-n);
+       for(int space=1; space<=s; space++)
+        {
+            cout<<" ";
+        }
+       for(int col=1; col<=c; col++)
+       {
+           cout<<"*";
+       }
+       cout<<endl;
+   }
+    }
 int main()
 {
    int n;
@@ -204,6 +278,9 @@ int main()
 // pattern6(n);
 // pattern7(n);
 //pattern8(n);
-pattern9(n);
+//pattern9(n);
+//pattern10(n);
+//pattern11(n);
+pattern12(n);
    return 0;
 }
