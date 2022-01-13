@@ -17,7 +17,6 @@ int a,b;
 cout<<"Enter the value of a and b ";
 cin>>a>>b;
 //swap(&a, &b);
- 
 swapxor(a,b);
 cout<<" a: "<<a<<" b: "<<b<<endl;
 return 0;

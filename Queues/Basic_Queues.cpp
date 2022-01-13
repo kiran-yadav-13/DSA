@@ -15,7 +15,7 @@ class Queue{
    int isEmptty();
    void Display();
    int Search(int s);
-   int count ();
+   int countElements();
 
 };
 int Queue :: isEmptty(){
@@ -24,7 +24,7 @@ int Queue :: isEmptty(){
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 int Queue ::isfull(){
@@ -32,13 +32,13 @@ int Queue ::isfull(){
         return 1;
     }
     else{
-        return -1;
+        return 0;
     }
 }
 void Queue :: addition(int in){
-      if(f==r==-1){
+      if(f==-1){
           f=r=0;
-          q[0]=in;
+          q[r]=in;
       }
       else{
           r++;
@@ -55,7 +55,7 @@ int Queue :: deletion(){
     }
     else{
         del=q[f];
-        f--;
+        f++;
         return del;
 
     }
@@ -83,17 +83,18 @@ int Queue ::Search(int s){
      }
      return -1;
 }
-int Queue :: count(){
+int Queue :: countElements(){
     int c=0;
      for(int i=f; i<=r; i++)
      {
-         c++;
+         c=c+1;
      }
      return c;
 }
 int main(){
    Queue q;
-   int in , choice, e, c;
+   int in , choice, e;
+   int c1;
    char c='y';
    while(c=='y'|| c=='Y')
   {
@@ -108,25 +109,28 @@ int main(){
     cin>>choice;
     switch(choice)
     {
-         case 1:  if(!q.isfull());
+         case 1:  if(!q.isfull())
                  {
                     cout<<"Enter the element to be inserted : ";
                     cin>>in;
                     q.addition(in);
+                    q.Display();
                  }
                  else{
                      cout<<"Queue is Full (overflow) . No more elements can be inserted!! "<<endl;
                  }
                  break;
-         case 2:  if(!q.isEmptty());
+         case 2:  if(!q.isEmptty())
                  {
                    e= q.deletion();
+                   cout<<e<<" has been deleted from the queue"<<endl;
+                   q.Display();
                  }
                  else{
                      cout<<"Queue is Empty (underflow) . No more elements can be deleted!! "<<endl;
                  }
                  break;
-         case 3: if(q.isEmptty());
+         case 3: if(q.isEmptty())
                  {
                    cout<<"Queue is Empty"<<endl;
                  }
@@ -134,7 +138,7 @@ int main(){
                      cout<<"Queue is not Empty "<<endl;
                  }
                  break;
-         case 4: if(q.isfull());
+         case 4: if(q.isfull())
                  {
                    cout<<"Queue is Full"<<endl;
                  }
@@ -142,8 +146,8 @@ int main(){
                      cout<<"Queue is not Full "<<endl;
                  }
                  break;
-         case 5:  c=q.count();
-                 cout<<"No of elements in queue is : "<<c<<endl;
+         case 5:  c1=q.countElements();
+                 cout<<"No of elements in queue is : "<<c1<<endl;
                  break;
          case 6: if(!q.isEmptty()){
                    cout<<"Enter the element you want to be searched : ";
@@ -159,7 +163,7 @@ int main(){
                     }
                     break;
         default:   cout<<"You entered a wrong choice "<<endl;
-    } 
+    }
     cout<<"Do you want to continue ? ";
     cin>>c;
     }
