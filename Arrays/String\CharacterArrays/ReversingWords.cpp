@@ -11,17 +11,7 @@ void swap(char &temp1, char &temp2){
      temp1=temp2;
      temp2=temp;
  }
-void reverse(string str, int start, int end){
-    int s=start;
-    int e=end;
-    while(s<=e){
 
-        swap(str[s], str[e]);
-      
-            s++;
-            e--;
-    }
-}
 string ReverseWords(string s){
     int start=0;
     int end=start;
