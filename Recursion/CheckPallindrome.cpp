@@ -19,11 +19,23 @@ if(n==ReverseNum(n))
     return false;
 
 }
+
+bool Pallindrome(string& name, int start, int end){
+  if(start>end){
+      return true;
+  }
+   if(name[start]!=name[end]){
+   return false;
+   }
+   Pallindrome(name,start+1,end-1);
+   return true;
+}
 int main(){
-   int n;
+   string n;
     cout<<"Enter the number : ";
     cin>>n;
-    cout<<"Pallindrome : "<<check_Pallindrome(n);
+
+    cout<<"Pallindrome : "<<Pallindrome(n,0,n.size()-1);
     return 0;
 
     
