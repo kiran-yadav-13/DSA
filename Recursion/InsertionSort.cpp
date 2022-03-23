@@ -20,18 +20,14 @@ void InsertionSort(int arr[], int n, int c){
     int key=arr[c];
 
     int i=c-1;
-    cout<<"c  " <<c<<" i "<<i<<endl;
-    int* ati=&arr[i];
-    cout<<" key "<<key<<endl;
-    while(arr[c]<arr[i] && i>=0){
-        cout<<" before a[i] : "<<arr[i]<<" a[i+1] "<<arr[i+1]<<" i "<<i<<endl;
-    
+
+    while(key<arr[i] && i>=0){        // in this while condition we cannot wirte a[c] instead of c because we are updating values at indexes 
         arr[i+1]= arr[i];
         i--;
-        cout<<" after a[i] : "<<arr[i]<<" a[i+1] "<<arr[i+1]<<" i "<<i<<endl;
+        
     }
     arr[i+1]=key;
-    PrintArray(arr,n);
+ 
     InsertionSort(arr, n,c+1);
 }
 int main(){
