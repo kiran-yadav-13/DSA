@@ -17,6 +17,7 @@ using namespace std;
 //                  1 2 3                       3 2 1                       * * * *
 //                  1 2                         2 1                       * * * * * *
 //                  1                           1                       * * * * * * * *
+// step 4 : try to co-relate the loop varibles of these patterns with outer loop variable and given n
 
 void pattern1(int n){
     int i=n;
