@@ -36,21 +36,56 @@ void pad(string p,string up){
 
 
     int digit=up[0]-'0';
-    vector<string> list;
+   ;
     for(int i=(digit-1)*3; i<digit*3; i++){
         
         char ch=(char)('a'+i);
         pad(p+ch, up.substr(1,up.length()-1));
     }
 }
+void pad1(string p,string up,vector<string>& ans){
+
+    if(up.length()==0){
+        ans.push_back(p);
+        return;
+    }
+    int count=0;
+    int digit=up[0]-'0';
+   
+    for(int i=(digit-1)*3; i<digit*3; i++){
+        
+        char ch=(char)('a'+i);
+        pad1(p+ch, up.substr(1,up.length()-1),ans);
+    }
+}
+// counting the no of combinations
+
+int  padcount(string p,string up){
+
+    if(up.length()==0){
+        return 1;
+    }
+    int count=0;
+    int digit=up[0]-'0';
+   
+    for(int i=(digit-1)*3; i<digit*3; i++){
+        
+        char ch=(char)('a'+i);
+        count=count+padcount(p+ch, up.substr(1,up.length()-1));
+    }
+    return count;
+}
+
 
 int main(){
   string n;
   vector<string> ans;
     cout<<"Enter the number : ";
     cin>>n;
-   cout<<"result: ";
-   ans=padRet("",n);
+//    ans=padRet("",n);
+   pad1("",n,ans);
+   cout<<" no of combinations : "<<padcount("", n)<<endl;
+    cout<<"result: ";
    for(int i=0; i<ans.size(); i++){
        cout<<ans[i]<<"  ";
    }
