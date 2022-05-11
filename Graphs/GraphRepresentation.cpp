@@ -1,0 +1,44 @@
+# include <iostream>
+using namespace std;
+
+// for undirected unweighted 
+void input(int n ,int m , int adj[50][50]){
+  
+   for(int i=1; i<=m; i++){
+       int u,v;
+       cout<<"Initial vertex : ";
+       cin>>u;
+      cout<<"Final vertex : ";
+       cin>>v; 
+       cout<<endl;
+       adj[u][v]=1;
+       adj[v][u]=1;
+       cout<<endl;
+   }
+    
+  
+}
+void display(int n ,int m , int adj[50][50]){
+      cout<<"Adjancey matrix of the Entered graph is : "<<endl;
+      for(int i=0; i<n; i++){
+           cout<<" | ";
+        for(int j=0; j<n; j++){
+            cout<<adj[i][j]<<"  ";
+        }
+         cout<<"| "<<endl;
+      }
+      
+}
+
+
+int main(){
+    int n,m;
+   cout<<"Enter the no of vertices : "<<endl;
+   cin>>n;
+   cout<<"Enter the no of vertices : "<<endl;
+   cin>>m;
+   int adj[50][50];
+   input(n, m ,adj);
+   display(n, m ,adj);
+   return 0;
+}
