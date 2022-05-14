@@ -1,5 +1,6 @@
  include <iostream>
 using namespace std;
+include <math.h>
 
 // for undirected unweighted 
 void input(int n ,int m , int adj[50][50]){
