@@ -40,6 +40,6 @@ int main(){
    cin>>m;
    int adj[50][50];
    input(n, m ,adj);
-   display(n, m ,adj);
+  // display(n, m ,adj);
    return 0;
 }
