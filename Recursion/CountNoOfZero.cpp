@@ -14,10 +14,26 @@ using namespace std;
          countZero(n/10, c);
      }
  }
+int count1(int n , int c){
+
+     if(n%10==n)
+     return c;
+
+    if((n%10)==0){
+        return count1(n/10, c+1);
+    }
+    else{
+         return count1(n/10, c);
+    }
+}
+int countZero1(int n){
+
+    return count1(n,0);
+}
 int main(){
     int n;
     cout<<"Enter the number : ";
     cin>>n;
-   cout<<"No of Zeros : "<<countZero(n,0);
+   cout<<"No of Zeros : "<<countZero1(n);
     return 0;
 }
