@@ -1,0 +1,28 @@
+//       headFirst                          headSecond
+//  orignal : 10 ->20 ->30 ->40 ->50 ->60 ->70 ->END
+//reordered : 10 ->70 ->20 ->60 ->30 ->50 ->40 ->END
+//  node* temp=headFirst->next;       temp=20
+//     headFirst->next=headSecond;   headFirst->next=70
+//     headFirst=temp;                headFirst=20;
+//     temp=headSecond->next          temp=60
+//     headSecond->next=headFirst;   70->next=20
+//     headSecond=temp;              headSecond=60
+node* LinkedList::Reorder(node* temp){
+      node *mid=GetMidNode();
+      node *headSecond=IterativeReverse(mid);
+      node *headFirst=temp;
+      while(headFirst !=NULL && headSecond!=NULL){
+         node *temp=headFirst->next;
+         headFirst->next=headSecond;
+         headFirst=temp;
+
+         temp=headSecond->next;
+         headSecond->next=headFirst;
+         headSecond=temp;
+      }
+      // doing next of tail to null
+      if(headFirst!=NULL){
+        headFirst->next=NULL;
+      }
+      return head;
+}
