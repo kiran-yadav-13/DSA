@@ -1,3 +1,17 @@
+
+int LinkedList::getLength(node* head){
+
+      if(head==NULL){
+    
+     return -1;
+    }
+int l=0;
+   for(node* temp=head; temp!=NULL; temp=temp->next){
+   l++;
+   }
+ return l;
+}
+
 node* LinkedList::ReverseKGroup(int k){
     if(k<=1 || head==NULL){
      return head;
