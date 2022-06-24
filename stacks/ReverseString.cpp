@@ -5,6 +5,9 @@
 using namespace std;
 
   void reverseString(vector<char>& s) {
+       if(s.size()==0){
+            return;
+        }
         stack<char> st;
         for(int i=0; i<s.size(); i++){
             st.push(s[i]);
@@ -17,7 +20,24 @@ using namespace std;
 
     // Two pointers appraoch
 
-    void Reverse(vector<char>& )
+    void Reverse(vector<char>& s ){
+        if(s.size()==0){
+            return;
+        }
+        int i=0;
+        int j=s.size()-1;
+        char temp;
+        while(i!=j){
+     
+            temp=s[i];
+            s[i]=s[j];
+            s[j]=temp;
+            i++;
+            j--;
+           
+        }
+
+    }
 
 int main(){
     vector<char> s;
@@ -29,7 +49,9 @@ int main(){
         cin>>a;
             s.push_back(a);
         }
-      reverseString(s);
+    //   reverseString(s);
+    Reverse(s);
+    cout<<"Reversed String : ";
         for(int i=0; i<s.size(); i++){
            cout<<s[i]<<"  ";
         }
