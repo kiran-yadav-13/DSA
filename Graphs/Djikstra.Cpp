@@ -66,9 +66,9 @@ void DijkstrasTest() {
   Node* b = new Node('b');
   Node* c = new Node('c');
   Node* d = new Node('d');
-  Node* e = new Node('e');
-  Node* f = new Node('f');
-  Node* g = new Node('g');
+//   Node* e = new Node('e');
+//   Node* f = new Node('f');
+//   Node* g = new Node('g');
 
   Edge* e1 = new Edge(a, c, 1);
   Edge* e2 = new Edge(a, d, 2);
